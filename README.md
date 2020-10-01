@@ -8,7 +8,7 @@ docker pull cracker2709/mypython-utils
 ```
 - Run if with
 ```shell script
-docker run -it  -p 5000:5000 cracker2709/mypython-utils:latest
+docker run -it  --network=host -p 5000:5000 cracker2709/mypython-utils:latest
 ```
 Install it quickly on a kubernetes cluster
 ```
