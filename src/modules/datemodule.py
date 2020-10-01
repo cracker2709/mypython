@@ -8,3 +8,7 @@ def greets():
 def get_date():
     now = datetime.now() # current date and time
     return now.strftime("%Y%m%d%H%M%S")
+
+def display_date_in_webapp():
+    now = datetime.now() # current date and time
+    return now.strftime("%d/%m/%Y, %H:%M:%S")

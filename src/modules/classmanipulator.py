@@ -12,3 +12,16 @@ def play_with_classes():
 
     for o in obj:
         print(o.do_process())
+
+
+def call_do_process():
+    m = MainObject()
+    c = ClientObject()
+    s = ServerObject()
+
+    obj = [m, c, s]
+
+    res = ''
+    for o in obj:
+        res = res + "\n" + o.do_process
+    return res
