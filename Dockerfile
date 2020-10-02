@@ -5,4 +5,5 @@ ADD src/objects/*.py /objects/
 ADD src/templates/*.html /templates/
 ADD src/static/images/* /static/images/
 RUN pip3 install flask
+EXPOSE 5000
 CMD [ "python3", "./main.py" ]
