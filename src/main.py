@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import platform
 from modules.datemodule import greets, display_date_in_webapp
 from modules.mathmodule import exponent, hypothenuse
@@ -8,19 +8,20 @@ from modules.classmanipulator import play_with_classes, call_do_process
 
 app = Flask(__name__)
 
+system_info = ""
+
 
 @app.route("/")
+@app.route("/index.html")
+@app.route("/statics/img/html")
 def index():
-    return """
-           <br/><a href='/os'>/os</a>
-           <br/><a href='/greets'>/greets</a>
-           <br/><a href='/hypothenuse/5/3'>/hypothenuse/5/3</a>
-           """
+    system_info = get_system_info()
+    return render_template('index.html', system_info=system_info, logo="static/images/python-logo.png")
 
 
 @app.route("/os")
 def get_system_info():
-    return f"os.name : <b>{platform.system()} - {platform.platform()}</b>"
+    return f"{platform.system()} - {platform.platform()}"
 
 
 @app.route("/greets")

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block titre %}System info{% endblock %}
+
+{% block contenu %}
+{{system_info}}
+    <ul>
+        <li><a href='/os'>/os</a></li>
+        <li><a href='/greets'>/greets</a></li>
+        <li><a href='/hypothenuse/5/3'>/hypothenuse/5/3</a></li>
+    </ul>
+{% endblock %}

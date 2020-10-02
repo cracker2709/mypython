@@ -40,3 +40,4 @@ def play_with_dictionaries():
     print(f'Value associated to myKey is {d0["mykey1"]}')
     print(d0.keys())
     print(d0.values())
+
