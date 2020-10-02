@@ -5,6 +5,7 @@ from modules.mathmodule import exponent, hypothenuse
 from modules.utils import print_sep, play_with_lists, play_with_array, play_with_dictionaries
 from modules.ioutils import writeinFile, viewfile
 from modules.classmanipulator import play_with_classes, call_do_process
+import json
 
 app = Flask(__name__)
 
@@ -15,13 +16,22 @@ system_info = ""
 @app.route("/index.html")
 @app.route("/statics/img/html")
 def index():
-    system_info = get_system_info()
-    return render_template('index.html', system_info=system_info, logo="static/images/python-logo.png")
+    system_info = f"{platform.system()} - {platform.platform()}"
+    return render_template('index.html', system_info=system_info, logo="static/images/python-logo.png",
+                           wallpaper="static/images/wallpaper.jpg")
 
 
 @app.route("/os")
 def get_system_info():
-    return f"{platform.system()} - {platform.platform()}"
+    sys_infos = {"uname" : platform.uname(),
+                 "system" : platform.system(),
+                 "node" : platform.node(),
+                 "release" : platform.release(),
+                 "machine" : platform.machine(),
+                 "processor": platform.processor()}
+    # Serializing json
+    sys_json_object = json.dumps(sys_infos, indent = 4)
+    return sys_json_object
 
 
 @app.route("/greets")

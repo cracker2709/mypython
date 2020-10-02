@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 
-{% block titre %}System info{% endblock %}
+{% block title %}
+<div class="container-fluid">
+    <img src="{{logo}}"><br/>
+</div>
+<br>
+<div class="container-fluid">
+    <h1><span class="badge badge-dark">System info : {{system_info}}</span></h1>
+</div>
+{% endblock %}
 
-{% block contenu %}
-{{system_info}}
-    <ul>
-        <li><a href='/os'>/os</a></li>
-        <li><a href='/greets'>/greets</a></li>
-        <li><a href='/hypothenuse/5/3'>/hypothenuse/5/3</a></li>
-    </ul>
+{% block content %}
+    <div class="container-fluid">
+        <h2>Available Endpoints</h2>
+        <ul>
+            <li><a class="badge badge-info" href='/os'><h4>Return Json formatted System infos via /os</h4></a></li>
+            <li><a class="badge badge-info" href='/greets'><h4>/greets</h4></a></li>
+            <li><a class="badge badge-info" href='/hypothenuse/5/3'><h4>/hypothenuse/5/3</h4></a></li>
+        </ul>
+    </div>
 {% endblock %}
