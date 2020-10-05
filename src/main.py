@@ -54,7 +54,8 @@ def mongo_movies_html():
                            nb_movies=get_nb_movies(),
                            movies=get_movies_html(),
                            logo="static/images/python-logo.png",
-                           mongo="static/images/mongodb.png")
+                           mongo="static/images/mongodb.png",
+                           wallpaper="static/images/wallpaper.jpg")
 
 
 if __name__ == '__main__':
