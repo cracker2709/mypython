@@ -1,5 +1,4 @@
 # mypython
-# goRest
 
 - Get docker image with
 
@@ -14,11 +13,11 @@ Install it quickly on a kubernetes cluster
 ```
 # Launch a temporary pod which will be destroyed when exiting the session
 kubectl run tmp-pyp-pod --rm -i --tty --image cracker2709/mypython-utils:latest --namespace <your_namespace>
-
+```
 
 - test it locally with python 3
 ```
-pip3 install Flask
+pip3 install Flask pymongo dnspython
 python3 src/main.py
 ```
 
