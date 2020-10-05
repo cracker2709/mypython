@@ -9,7 +9,7 @@ class Movie(object):
         print("Init empty Movie Obj")
 
     def __init__(self, title, type, year, plot, poster):
-        print(f"Init Movie Obj with title={title}")
+        # print(f"Init Movie Obj with title={title}")
         self.__title = title
         self.__type = type
         self.__year = year

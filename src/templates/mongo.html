@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% block title %}
-<h2>The Power of <img src="{{logo}}" width="30%"> with <img src="{{mongo}}" width="15%"></h2><br/>
+<ul><li><h1>The Power of <img src="{{logo}}" width="15%"> with <img src="{{mongo}}" width="15%"></h1></li></ul>
 {% endblock %}
 {% block content %}
     <div class="container-fluid">
-        <h2>Movies</h2>
+        <h2>There are {{nb_movies}} Movies to display</h2>
+
         <table class="table table-hover table-dark">
             <thead>
             <tr>

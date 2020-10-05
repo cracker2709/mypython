@@ -11,6 +11,11 @@ def get_mongo_database():
     return db
 
 
+def get_nb_movies():
+    db = get_mongo_database()
+    return db.movies.count({})
+
+
 def get_movies_json():
     db = get_mongo_database()
     cursor = db.movies.find({}, {"title": 1, "type": 1, "year": 1, "poster": 1}).limit(10);
@@ -42,7 +47,7 @@ def get_movies_html():
     cursor = db.movies.aggregate(pipe)
     list_movies = list(cursor)
     for movie in list_movies:
-        print(f'{movie["title"]} - {movie["type"]} - {movie["year"]} - {movie["poster"]}')
+        # print(f'{movie["title"]} - {movie["type"]} - {movie["year"]} - {movie["poster"]}')
         movie_obj = Movie(movie["title"], movie["type"], movie["year"], movie["plot"], movie["poster"])
         retval.append(movie_obj)
     return retval
