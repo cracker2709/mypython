@@ -5,7 +5,7 @@
 ```shell script
 docker pull cracker2709/mypython-utils
 ```
-- Run if with
+- Run it with
 ```shell script
 docker run -p 5000:5000 cracker2709/mypython-utils:latest
 ```
