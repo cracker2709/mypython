@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h2>The Power of <img src="{{logo}}" width="30%"> with <img src="{{mongo}}" width="15%"></h2><br/>
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <h2>Movies</h2>
+        <table class="table table-hover table-dark">
+            <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Type</th>
+                <th scope="col">Year</th>
+                <th scope="col">Resume</th>
+                <th scope="col">Poster</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for movie in movies %}
+            <tr>
+                <th scope="row">{{movie.get_title()}}</th>
+                <td>{{movie.get_type()}}</td>
+                <td>{{movie.get_year()}}</td>
+                <td>{{movie.get_plot()}}</td>
+                <td><img src="{{movie.get_poster()}}" width="25%"></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
