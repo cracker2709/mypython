@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import platform
+import os
 from modules.datemodule import greets, display_date_in_webapp
 from modules.mathmodule import exponent, hypothenuse
 from modules.utils import print_sep, play_with_lists, play_with_array, play_with_dictionaries
@@ -59,7 +60,8 @@ def mongo_movies_html():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
 
 greets()
 
