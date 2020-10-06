@@ -25,3 +25,8 @@ python3 src/main.py
 ```
 http://localhost:5000/
 ``` 
+
+- View it deployed on
+```
+https://mypython-utils.herokuapp.com/
+```
