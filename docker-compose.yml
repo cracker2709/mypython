@@ -1,7 +1,7 @@
 version: '3.2'
 
 services:
-  gorest:
+  mypython:
     # The official v2 Traefik docker image
     image: cracker2709/mypython-utils:latest
     container_name: mypython
