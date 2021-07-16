@@ -1,13 +1,20 @@
+import datetime
+import time
+
 from flask import Flask, render_template
 import platform
 import os
-from modules.datemodule import greets, display_date_in_webapp
+from modules.datemodule import greets, display_date_in_webapp, display_date_from_timestamp
 from modules.mathmodule import exponent, hypothenuse
 from modules.utils import print_sep, play_with_lists, play_with_array, play_with_dictionaries
 from modules.ioutils import writeinFile, viewfile
 from modules.classmanipulator import play_with_classes, call_do_process
 from modules.mongoutils import get_movies_json, get_movies_html, get_nb_movies
+from ansible_vault import Vault
+
 import json
+
+from src.objects.my_vault import MyVault
 
 app = Flask(__name__)
 
@@ -39,6 +46,11 @@ def get_system_info():
 @app.route("/greets")
 def display_greets():
     return f"today we are <b>{display_date_in_webapp()}</b>"
+
+@app.route("/vault")
+def display_vault():
+    my_vault = MyVault()
+    return my_vault.load_raw(file="foo.yml")
 
 
 @app.route("/hypothenuse/<int:a>/<int:b>")
@@ -97,3 +109,12 @@ writeinFile("gap.txt")
 viewfile("gap.txt")
 
 play_with_classes()
+
+val=1610526618487
+
+calc=val/1000
+
+ts = datetime.datetime.fromtimestamp(time.time()).isoformat()
+print(ts)
+
+
